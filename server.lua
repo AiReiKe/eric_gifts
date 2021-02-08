@@ -63,6 +63,17 @@ ESX.RegisterUsableItem('new_gift', function(source)
 end)
 
 
+
+
+
+
+
+
+
+
+
+
+
 print('#######################################')
 print('\nThank you for using eric_gifts')
 print('Create by AiReiKe')
