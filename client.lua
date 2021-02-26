@@ -1,7 +1,16 @@
+local getting_gift = false
 ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 RegisterCommand(Config.command, function()
-    TriggerServerEvent('eric_gifts:getgift')
+    if getting_gift == false then
+        getting_gift = true
+        
+        TriggerServerEvent('eric_gifts:getgift')
+
+        Citizen.Wait(5000)
+
+        getting_gift = false
+    end
 end)
