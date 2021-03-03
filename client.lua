@@ -8,6 +8,7 @@ RegisterCommand(Config.command, function()
         getting_gift = true
         
         TriggerServerEvent('eric_gifts:getgift')
+        print("\nCreate by AiReiKe\nThanks for using\n")
 
         Citizen.Wait(5000)
 
