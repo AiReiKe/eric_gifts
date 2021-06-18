@@ -15,3 +15,29 @@ RegisterCommand(Config.command, function()
         getting_gift = false
     end
 end)
+
+RegisterNetEvent('eric_gifts:spawnVehicle')
+AddEventHandler('eric_gifts:spawnVehicle', function(vehicleType, model)
+	local playerPed = GetPlayerPed(-1)
+	local coords    = GetEntityCoords(playerPed)
+	local carExist  = false
+
+	ESX.Game.SpawnVehicle(model, coords, 0.0, function(vehicle) --get vehicle info
+		if DoesEntityExist(vehicle) then
+			carExist = true
+			SetEntityVisible(vehicle, false, false)
+			SetEntityCollision(vehicle, false)
+			
+			local newPlate     = exports.esx_vehicleshop:GeneratePlate()
+			local vehicleProps = ESX.Game.GetVehicleProperties(vehicle)
+			vehicleProps.plate = newPlate
+			TriggerServerEvent('eric_gifts:setVehicle', vehicleProps, GetPlayerServerId(PlayerId()), vehicleType)
+			ESX.Game.DeleteVehicle(vehicle)	
+		end		
+	end)
+	
+	Wait(2000)
+	if not carExist then
+		ESX.ShowNotification(_U('unknown_car', model))		
+	end
+end)
