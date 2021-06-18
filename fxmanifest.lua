@@ -19,3 +19,7 @@ server_scripts {
 	'config.lua',
 	'server.lua'
 }
+
+dependencies {
+	'esx_vehicleshop'
+}
