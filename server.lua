@@ -56,6 +56,7 @@ AddEventHandler('eric_gifts:getgiftitem',function(source)
             TriggerClientEvent("eric_gifts:spawnVehicle", source, "boat", Config.Item[i].model)
         else	
 		local upperItemName = string.upper(Config.Item[i].name)
+				
 		if string.sub(upperItemName, 1, 6) == 'WEAPON_' then
             		if Config.WeaponItem then
                 		xPlayer.addInventoryItem(string.upper(Config.Item[i].name), Config.Item[i].count)
