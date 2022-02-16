@@ -1,7 +1,7 @@
 fx_version 'adamant'
 
 game 'gta5'
-
+version '2.5.0'
 description 'Eric Gifts'
 
 client_scripts {

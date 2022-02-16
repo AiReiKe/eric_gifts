@@ -48,6 +48,12 @@ AddEventHandler('eric_gifts:getgiftitem',function(source)
             xPlayer.addMoney(Config.Item[i].count)
         elseif Config.Item[i].name == 'bank' then
             xPlayer.addAccountMoney('bank', Config.Item[i].count)
+        elseif string.sub(string.upper(Config.Item[i].name), 1, 5) == 'WEAPON' then
+            if Config.WeaponItem then
+                xPlayer.addInventoryItem(string.upper(Config.Item[i].name), Config.Item[i].count)
+            else
+                xPlayer.addWeapon(string.upper(Config.Item[i].name), Config.Item[i].count)
+            end 
         elseif Config.Item[i].name == 'car' then
             TriggerClientEvent("eric_gifts:spawnVehicle", source, "car", Config.Item[i].model)
         elseif Config.Item[i].name == 'aircraft' then
