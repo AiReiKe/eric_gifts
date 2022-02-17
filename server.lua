@@ -57,7 +57,7 @@ AddEventHandler('eric_gifts:getgiftitem',function(source)
         else	
 		local upperItemName = string.upper(Config.Item[i].name)
 				
-		if string.sub(upperItemName, 1, 6) == 'WEAPON_' then
+		if string.sub(upperItemName, 1, 7) == 'WEAPON_' then
             		if Config.WeaponItem then
                 		xPlayer.addInventoryItem(string.upper(Config.Item[i].name), Config.Item[i].count)
             		else
