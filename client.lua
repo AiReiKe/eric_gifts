@@ -41,3 +41,7 @@ AddEventHandler('eric_gifts:spawnVehicle', function(vehicleType, model)
 		ESX.ShowNotification(_U('unknown_car', model))		
 	end
 end)
+
+Citizen.CreateThread(function()
+	TriggerEvent('chat:addSuggestion', '/'..Config.command, _U('get_gift', Config.giftname), {})	
+end)
