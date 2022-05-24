@@ -1,4 +1,5 @@
 local getting_gift = false
+local loadingModel = false
 ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
@@ -18,6 +19,12 @@ end)
 
 RegisterNetEvent('eric_gifts:spawnVehicle')
 AddEventHandler('eric_gifts:spawnVehicle', function(vehicleType, model)
+	while loadingModel do
+		Citizen.Wait(1000)
+	end
+		
+	loadingModel = true
+		
 	local playerPed = GetPlayerPed(-1)
 	local coords    = GetEntityCoords(playerPed)
 	local carExist  = false
@@ -40,6 +47,8 @@ AddEventHandler('eric_gifts:spawnVehicle', function(vehicleType, model)
 	if not carExist then
 		ESX.ShowNotification(_U('unknown_car', model))		
 	end
+	
+	loadingModel = false
 end)
 
 Citizen.CreateThread(function()
