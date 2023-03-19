@@ -1,23 +1,25 @@
-fx_version 'adamant'
+fx_version 'cerulean'
 
 game 'gta5'
-version '2.5.0'
+version "3.0.0"
+
 description 'Eric Gifts'
 
-client_scripts {
+shared_scripts {
+	'@es_extended/imports.lua',
     '@es_extended/locale.lua',
 	'locales/*.lua',
+}
+
+client_scripts {
 	'config.lua',
 	'client.lua'
 }
 
 server_scripts {
-	'@async/async.lua',
 	'@mysql-async/lib/MySQL.lua',
-	'@es_extended/locale.lua',
-	'locales/*.lua',
 	'config.lua',
-	'server.lua'
+	'server/*.lua'
 }
 
 dependencies {
