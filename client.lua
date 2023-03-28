@@ -97,7 +97,7 @@ else
 					end
 				end
 				if distance <= 8.0 then
-					ShowFloatingHelpNotification(_U("press_to_get"), Config.GiftPed.pos.z + 1)
+					ShowFloatingHelpNotification(_U("press_to_get"), Config.GiftPed.pos.xyz + vec3(0, 0, 1))
 					if IsControlJustReleased(0, 38) and not getting_gift and distance <= 1.5 then
 						getting_gift = true
 							
