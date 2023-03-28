@@ -29,13 +29,11 @@ local CheckVersion = function(err, responseText, headers)
 
     CreateThread(function()
         if curVersion ~= repoVersion then
-            Wait(4000)
             print("^0[^3WARNING^0] " .. resourceName .. " is ^1NOT ^0up to date!")
             print("^0[^3WARNING^0] Your Version: ^1" .. curVersion .. "^0")
             print("^0[^3WARNING^0] Latest Version: ^2" .. repoVersion .. "^0")
             print("^0[^3WARNING^0] Get the latest Version from: ^2" .. repoURL .. "^0")
         else
-            Wait(4000)
             print("^0[^2INFO^0] " .. resourceName .. " is up to date! (^2" .. curVersion .. "^0)")
         end
     end)

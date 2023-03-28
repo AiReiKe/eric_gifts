@@ -74,6 +74,7 @@ AddEventHandler('eric_gifts:setVehicle', function (vehicleProps, playerID, vehic
 		['@stored']  = 1,
 		['type'] = vehicleType
 	}, function ()
+        TriggerClientEvent("eric_gifts:giveCarKey", _source, ESX.Math.Trim(vehicleProps.plate))
 		TriggerClientEvent('esx:showNotification', _source, _U('received_car', string.upper(vehicleProps.plate)))
 	end)
 end)
