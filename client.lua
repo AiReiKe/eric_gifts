@@ -6,6 +6,14 @@ if Config.oldESX then
 	TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 end
 
+local function ShowFloatingHelpNotification(msg, coords)
+    AddTextEntry('DUTYSTRING', msg)
+    SetFloatingHelpTextWorldPosition(1, coords)
+    SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
+    BeginTextCommandDisplayHelp('DUTYSTRING')
+    EndTextCommandDisplayHelp(2, false, false, -1)
+end
+
 RegisterNetEvent('eric_gifts:spawnVehicle')
 AddEventHandler('eric_gifts:spawnVehicle', function(vehicleType, model)
 	while loadingModel do
@@ -88,9 +96,9 @@ else
 						SetModelAsNoLongerNeeded(Config.GiftPed.model)
 					end
 				end
-				if distance <= 1.5 then
-					ESX.ShowHelpNotification(_U("press_to_get"))
-					if IsControlJustReleased(0, 38) and not getting_gift then
+				if distance <= 8.0 then
+					ShowFloatingHelpNotification(_U("press_to_get"), Config.GiftPed.pos.z + 1)
+					if IsControlJustReleased(0, 38) and not getting_gift and distance <= 1.5 then
 						getting_gift = true
 							
 						TriggerServerEvent('eric_gifts:getgift')

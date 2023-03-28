@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 
 game 'gta5'
-version "3.0.0"
+version "3.1.0"
 
 description 'Eric Gifts'
 

@@ -32,3 +32,10 @@ Config.Item = { --禮包內容物
     {name = 'aircraft', model = 'lazer'}, --新手飛機
     {name = 'boat', model = 'blazer2'}, --新手船
 }
+
+if not IsDuplicityVersion() then
+    RegisterNetEvent("eric_gifts:giveCarKey")
+    AddEventHandler("eric_gifts:giveCarKey", function(plate)
+        TriggerEvent("eric_carlock:addcarkey", plate)    -- 若有車鑰匙系統, 可自行加入給予車鑰匙的function
+    end)
+end
